@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skills",
+  "info": {
+    "name": "Skill"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "skillname": {
+      "type": "string"
+    },
+    "skilltype": {
+      "type": "enumeration",
+      "enum": [
+        "design",
+        "dev",
+        "mkg"
+      ]
+    },
+    "skillimg": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "namerelate": {
+      "via": "skills",
+      "model": "project"
+    }
+  }
+}
